@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/interactable/tree.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/management/world.gd" type="Script" id=2]
+[ext_resource path="res://scenes/management/grid_line.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/grass.tscn" type="PackedScene" id=4]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 2 )
+tree_scene = ExtResource( 1 )
+tree_amount = 20
+decoration_tile_amount = 20
+x_size = 24
+y_size = 12
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 192, 96 )
+current = true
+
+[node name="GridLine" parent="." instance=ExtResource( 3 )]
+width = 768
+height = 384
+
+[node name="Grass" parent="." instance=ExtResource( 4 )]
+z_index = -1
+
+[node name="YSort" type="YSort" parent="."]

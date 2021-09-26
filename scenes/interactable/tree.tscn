@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/interactable/tree.gd" type="Script" id=1]
+[ext_resource path="res://assets/props/brown_tree.png" type="Texture" id=2]
+[ext_resource path="res://scripts/interactable/brown_tree.tres" type="Resource" id=3]
+[ext_resource path="res://scripts/interactable/green_tree.tres" type="Resource" id=4]
+[ext_resource path="res://scripts/interactable/blue_tree.tres" type="Resource" id=5]
+[ext_resource path="res://assets/props/base_tree.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.03602
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.90921
+height = 6.57319
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource( 1 )
+tree_list = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ]
+
+[node name="TopTree" type="Sprite" parent="."]
+position = Vector2( 8, -4 )
+texture = ExtResource( 2 )
+
+[node name="BaseTree" type="Sprite" parent="TopTree"]
+position = Vector2( 0, 5.01027 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 12.9023, 25.2235 )
+shape = SubResource( 1 )
+
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+position = Vector2( 12.9356, 21.0297 )
+
+[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource( 2 )

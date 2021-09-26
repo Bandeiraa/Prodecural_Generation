@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/interactable/interactable.gd" type="Script" id=1]
+[ext_resource path="res://assets/props/blue_tree.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+interactable_name = "Blue Tree"
+interactable_image = ExtResource( 2 )
+spawn_rate = [ 71, 95 ]
+drop_amount = [ 3, 5 ]
